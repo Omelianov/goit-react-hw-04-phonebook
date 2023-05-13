@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(102, 234, 206, 0.627);
+  border-radius: 4px;
+}
+.label {
+  padding: 20px;
+}
+.name {
+  margin-right: 26px;
+}
+.number {
+  margin-right: 10px;
+}
+.button {
+  background-color: rgba(100, 170, 158, 0.731);
+  cursor: pointer;
+  border-radius: 4px;
+
+  border-color: rgba(156, 227, 225, 0.859);
+}
+.button:hover {
+  background-color: rgba(224, 142, 75, 0.809);
+  font-weight: 600;
+}

@@ -1,0 +1,11 @@
+.button {
+  background-color: rgba(156, 227, 225, 0.829);
+  cursor: pointer;
+  border-radius: 4px;
+
+  border-color: rgba(156, 227, 225, 0.5);
+}
+.button:hover {
+  background-color: rgba(224, 142, 75, 0.809);
+  font-weight: 600;
+}

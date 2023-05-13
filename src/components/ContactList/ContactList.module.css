@@ -1,0 +1,12 @@
+.list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.button {
+  background-color: rgba(156, 227, 225, 0.872);
+  cursor: pointer;
+  border-radius: 4px;
+
+  border-color: rgba(156, 227, 225, 0.994);
+}
