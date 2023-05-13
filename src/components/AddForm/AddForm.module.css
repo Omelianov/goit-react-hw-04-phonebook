@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  background-color: rgba(102, 234, 206, 0.627);
+  background-color: #204254;
   border-radius: 4px;
 }
 .label {
@@ -14,11 +14,12 @@
   margin-right: 10px;
 }
 .button {
-  background-color: rgba(100, 170, 158, 0.731);
+  background-color: #0e232e;
   cursor: pointer;
   border-radius: 4px;
+  color: #ffffff;
 
-  border-color: rgba(156, 227, 225, 0.859);
+  border-color: #6f3a3a;
 }
 .button:hover {
   background-color: rgba(224, 142, 75, 0.809);

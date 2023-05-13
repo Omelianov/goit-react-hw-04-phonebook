@@ -4,9 +4,10 @@
   padding-left: 0;
 }
 .button {
-  background-color: rgba(156, 227, 225, 0.872);
+  background-color: #0e232e;
   cursor: pointer;
   border-radius: 4px;
+  color: #ffffff;
 
-  border-color: rgba(156, 227, 225, 0.994);
+  border-color:#6f3a3a;
 }

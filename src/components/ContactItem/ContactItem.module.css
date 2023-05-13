@@ -1,9 +1,11 @@
 .button {
-  background-color: rgba(156, 227, 225, 0.829);
+  background-color: #0e232e;
   cursor: pointer;
   border-radius: 4px;
+  color: #f6dede;
+  font-size: 14px;
 
-  border-color: rgba(156, 227, 225, 0.5);
+  border-color: #6f3a3a;
 }
 .button:hover {
   background-color: rgba(224, 142, 75, 0.809);
