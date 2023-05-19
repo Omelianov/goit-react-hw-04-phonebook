@@ -5,26 +5,30 @@ import AddForm from './AddForm/AddForm';
 import css from './App.module.css';
 
 const App = () => {
-  const [phonebook, setPhonebook] = useState({
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
-    filter: '',
+  const [phonebook, setPhonebook] = useState(() => {
+    const savedData = localStorage.getItem('contacts');
+    return savedData ? JSON.parse(savedData) : {
+      contacts: [
+        { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+        { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+        { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+        { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      ],
+      filter: '',
+    };
   });
 
   useEffect(() => {
-    const savedData = localStorage.getItem('phonebook');
-    if (savedData) {
+    localStorage.setItem('contacts', JSON.stringify(phonebook));
+  }, [phonebook]);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem('contacts');
+    if (savedData!==null) {
       setPhonebook(JSON.parse(savedData));
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('phonebook', JSON.stringify(phonebook));
-  }, [phonebook]);
 
   const addContact = newContact => {
     const findContact = phonebook.contacts.find(
