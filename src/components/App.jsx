@@ -29,9 +29,7 @@ const App = () => {
     );
     if (findContact) {
       alert(`${newContact.name} is already in contacts`);
-    } else {
-      setContacts(prevContacts => [...prevContacts, newContact]);
-    }
+    } return
   };
 
   const handleFilter = event => {
