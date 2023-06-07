@@ -6,10 +6,10 @@ import css from './App.module.css';
 
 const App = () => {
   const [contacts, setContacts] = useState(() => {
-    const savedData = localStorage.getItem('contacts');
-    return savedData
-      ? JSON.parse(savedData).contacts
-      : [
+  const savedData = localStorage.getItem('contacts');
+  return savedData && savedData !== 'undefined'
+    ? JSON.parse(savedData).contacts
+    : [
           { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
           { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
           { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
@@ -20,27 +20,33 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify({ contacts, filter }));
-  }, [contacts, filter]);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = newContact => {
-    const findContact = contacts.find(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
-    );
-    if (findContact) {
-      alert(`${newContact.name} is already in contacts`);
-    } return
-  };
+  const findContact = contacts.find(
+    contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+  );
+
+  if (findContact) {
+    alert(`${newContact.name} is already in contacts`);
+  } else {
+    setContacts(prevContacts => [...prevContacts, newContact]);
+  }
+};
 
   const handleFilter = event => {
     setFilter(event.target.value);
   };
 
   const renderContacts = () => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.trim().toLowerCase())
-    );
-  };
+  if (!contacts) {
+    return []; 
+  }
+  return contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.trim().toLowerCase())
+  );
+};
 
   const deleteContact = id => {
     setContacts(prevContacts =>

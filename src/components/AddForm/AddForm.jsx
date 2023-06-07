@@ -1,4 +1,3 @@
-
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import css from './AddForm.module.css';
@@ -63,7 +62,7 @@ const AddForm = ({ addContact }) => {
           required
         />
       </label>
-      <button className={css.button}>Add contact</button>
+      <button className={css.button} type="submit">Add contact</button>
     </form>
   );
 };
