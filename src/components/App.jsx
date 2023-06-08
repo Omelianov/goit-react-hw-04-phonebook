@@ -28,10 +28,13 @@ const App = () => {
     contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
   );
 
-  if (findContact) {
-    alert(`${newContact.name} is already in contacts`)
-  } return;
-};
+    if (findContact) {
+      alert(`${newContact.name} is already in contacts`)
+      return;
+    }
+  
+  setContacts(prevContacts => [...prevContacts, newContact]);
+  };
 
   const handleFilter = event => {
     setFilter(event.target.value);
